@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <property><!--数据库连接地址，使用MySQL存储元数据信息-->
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://node03:3306/metastore?createDatabaseIfNotExist=true&amp;useSSL=false&amp;characterEncoding=UTF-8</value>
+  </property>
+  <property><!--数据库驱动-->
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+  </property>
+  <property><!--数据库用户名-->
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>root</value>
+  </property>
+  <property><!--密码-->
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>123456</value>
+  </property>
+  <property><!--HDFS路径，用于存储不同 map/reduce 阶段的执行计划和这些阶段的中间输出结果。-->
+    <name>hive.exec.local.scratchdir</name>
+    <value>/hive/tmp</value>
+  </property>
+  <property><!--HDFS路径，本地表的默认位置-->
+    <name>hive.metastore.warehouse.dir</name>
+    <value>/hive/warehouse</value>
+  </property>
+  <property><!--本地路径：Hive 查询日志所在的目录，如果该值为空，将不创建查询日志。-->
+    <name>hive.querylog.location</name>
+    <value>/tmp/hive/logs</value>
+  </property>
+  <property><!--本地路径：Hive操作日志-->
+    <name>hive.server2.logging.operation.log.location</name>
+    <value>/tmp/hive/logs</value>
+  </property>
+  <property><!--本地路径：远程资源下载的临时目录-->
+    <name>hive.downloaded.resources.dir</name>
+    <value>/tmp/hive/resources</value>
+  </property>
+  <!-- Hive元数据存储的验证 -->
+    <property>
+        <name>hive.metastore.schema.verification</name>
+        <value>false</value>
+    </property>
+    <!-- 元数据存储授权  -->
+    <property>
+        <name>hive.metastore.event.db.notification.api.auth</name>
+        <value>false</value>
+    </property>
+    <!-- 指定hiveserver2连接的host -->
+    <property>
+        <name>hive.server2.thrift.bind.host</name>
+        <value>node01</value>
+    </property>
+    <!-- 指定hiveserver2连接的端口号 -->
+    <property>
+        <name>hive.server2.thrift.port</name>
+        <value>10000</value>
+    </property>
+    <!-- 指定metastore服务的地址 -->
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://node01:9083</value>
+    </property>
+    <!-- 打印表名 -->
+    <property>
+        <name>hive.cli.print.header</name>
+        <value>true</value>
+    </property>
+    <!-- 打印库名 -->
+    <property>
+        <name>hive.cli.print.current.db</name>
+        <value>true</value>
+    </property>
+    <!-- hiveserver2高可用参数，开启此参数可以提高hiveserver2启动速度 -->
+    <property>
+        <name>hive.server2.active.passive.ha.enable</name>
+        <value>true</value>
+    </property>
+  <property>
+    <!-- hiveserver2用户名 -->
+    <name>beeline.hs2.connection.user</name>
+    <value>root</value>
+  </property>
+  <property>
+    <!-- hiveserver2密码 -->
+    <name>beeline.hs2.connection.password</name>
+    <value>123456</value>
+  </property>
+</configuration>

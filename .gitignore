@@ -1,0 +1,8 @@
+# 项目排除路径
+/user_profile_manager/target/
+/user_profile_task/task-bitmap-ck/target/
+/user_profile_task/task-common/target/
+/user_profile_task/task-export-ck/target/
+/user_profile_task/task-ml/target/
+/user_profile_task/task-tag-merge/target/
+/user_profile_task/task-tag-sql/target/
